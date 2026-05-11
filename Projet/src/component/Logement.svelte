@@ -7,14 +7,24 @@
     searchContent.subscribe((value) => {
         search = value;
     })
-   
-
+    var logements = $state([])
+    const getLogements = async () => {
+        const res = await fetch("/api/logements")
+        logements = await res.json()
+    }
+    getLogements()
 </script>
 
-{#if name.includes(search)}
-<div title={name}>
-    <h1>Nom: {name}</h1>
-    <Image src="https://picsum.photos/600/400?5"/>
-</div>
-{/if}
+{#each logements as logement}
+    {#if name.includes(search)}
+
+        <div title={"Nom du logement"}>
+            <h1>Nom: {logement.nom}</h1>
+            <Image src={logement.imageUrl}/>
+        </div>
+
+    {/if}
+{/each}
+
+
 

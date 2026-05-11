@@ -11,9 +11,10 @@ var logementJson = {}
   
     const getLogements = async () => {
         const res = await fetch("/api/logements")
-        logementJson = await res.json()
+        let logementJson = await res.json()
         console.log(logementJson)
     }
+    
 </script>
 
 {#if isLogged}

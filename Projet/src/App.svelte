@@ -20,7 +20,7 @@ var logementJson = {}
     <Login/>
 {:else}
     <Header/>
-    <div class=".search-list">
+    <div class="logements">
         <Logement/>
     </div>
 

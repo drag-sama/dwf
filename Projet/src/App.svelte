@@ -7,25 +7,23 @@ var logementJson = {}
     import Login from './component/Login.svelte';
     
     import {userName} from "./lib/store"
+  import LogementForm from './component/LogementForm.svelte';
 
     let logged = $state('');
     userName.subscribe((value) => {
         logged = value;
-        console.log(logged)
     })
-  
-
-    
 </script>
 
-{#if logged != ''}
 
-<Header/>
-<div class=".search-list">
-    <Logement/>
-</div>
-
-{:else}
+{#if logged == ''}
     <Login/>
+{:else}
+    <Header/>
+    <div class=".search-list">
+        <Logement/>
+    </div>
+
+    <LogementForm/>
 {/if}
 

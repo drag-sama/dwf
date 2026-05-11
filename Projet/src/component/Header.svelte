@@ -8,7 +8,6 @@
     let userId = $state('')
 
     const getUser = async () => {
-        console.log(userId)
         const res = await fetch("/api/utilisateurs/" + userId)
         user = await res.json()
     }
@@ -21,12 +20,16 @@
     
 </script>
 
-<div>
-    <img src="/Logo.png" alt="Logo" />
-    <input bind:value={name} oninput={() => searchContent.set({name}.name)} placeholder="Chercher un logement" />
-    {#if user != null}
-        <div>
-            Bienvenue {user.prenom} {user.nom} ! 
-        </div>
-    {/if}
+<div class="flex flex-row shadow-xl justify-between">
+    <img src="/Logo.png" alt="Logo" class="size-25" />
+    <div>
+        {#if user != null}
+            <div class="flex flex-col items-center">
+            <img src="/Logo.png" alt="Logo" class="size-10" onclick={() => console.log("click")}/>
+                Bienvenue {user.prenom} {user.nom} ! 
+            </div>
+        {/if}
+        <input class="border border-gray-300 h-9 mr-15 my-3"
+            bind:value={name} oninput={() => searchContent.set({name}.name)} placeholder="Chercher un logement" />
+    </div>
 </div>

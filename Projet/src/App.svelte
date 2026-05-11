@@ -2,7 +2,7 @@
 
 var logementJson = {}
 
-    import Location from './component/Location.svelte';
+    import Logement from './component/Logement.svelte';
     import Header from './component/Header.svelte';
   
     const getLogements = async () => {
@@ -17,6 +17,6 @@ var logementJson = {}
 <button on:click={getLogements}>Get logements</button>
 
 <div class=".search-list">
-    <Location/>
+    <Logement/>
 </div>
 

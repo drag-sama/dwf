@@ -4,12 +4,12 @@ var logementJson = {}
 
     import Logement from './component/Logement.svelte';
     import Header from './component/Header.svelte';
-  
     const getLogements = async () => {
         const res = await fetch("/api/logements")
-        logementJson = await res.json()
+        let logementJson = await res.json()
         console.log(logementJson)
     }
+    
 </script>
 
 <Header/>

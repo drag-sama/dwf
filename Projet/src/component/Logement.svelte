@@ -18,13 +18,13 @@
 {#each logements as logement}
     {#if logement.nom.toLowerCase().includes(search.toLowerCase())}
 
-        <div class ="logement shadow-sm rounded-sm">
+        <div class ="flex flex-col justify-center w-full max-w-2/12 mx-3 pb-3 rounded-xl mb-8 rounded-sm border border-white hover:border-gray-900">
             <Image src={logement.imageUrl}/>
-            <div class = "infos_logement">
-                <p class = "name_logement">{logement.nom}</p>
-                <p class = "city_logement">{logement.ville}</p>
-                <p class = "desc_logement">{logement.description}</p>
-                <p class = "price_logement">{logement.prix} €</p>
+            <div class = "flex flex-col text-center">
+                <p class = "font-bold">{logement.nom}</p>
+                <p class = "text-gray-500">{logement.ville}</p>
+                <p class = "text-gray-500">{logement.description}</p>
+                <p class = "font-bold">{logement.prix} €</p>
             </div>
         </div>
 

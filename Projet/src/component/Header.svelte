@@ -20,7 +20,7 @@
     
 </script>
 
-<div class="flex flex-row shadow-xl justify-between rounded-b-xl">
+<div class="flex flex-row shadow-xl justify-between rounded-b-xl mb-10">
     <img src="/Logo.png" alt="Logo" class="size-25" />
     <div>
         {#if user != null}

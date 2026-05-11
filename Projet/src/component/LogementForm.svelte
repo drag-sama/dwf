@@ -34,11 +34,13 @@
     
 </script>
 
-<div>
-    <h1> Crée nouveau logement</h1>
-    <input bind:value={nom} placeholder="Nom" />
-    <input bind:value={ville} placeholder="Ville" />
-    <input bind:value={prix} placeholder="Prix" />
-    <input bind:value={capacite} placeholder="Capacite" />
-    <button onclick={createLogement}> Crée</button>
+<div class=" flex flex-col my-10">
+<div class="shadow-md rounded-md border border-gray-200 flex flex-col items-center self-center">
+        <span class="mx-10 my-3 text-xl"> Crée nouveau logement</span>
+        <input class="border border-gray rounded-sm my-1 p-1" bind:value={nom} placeholder="Nom" />
+        <input class="border border-gray rounded-sm my-1 p-1" bind:value={ville} placeholder="Ville" />
+        <input class="border border-gray rounded-sm my-1 p-1" bind:value={prix} placeholder="Prix" />
+        <input class="border border-gray rounded-sm my-1 p-1" bind:value={capacite} placeholder="Capacite" />
+        <button class="bg-black text-white m-3 p-2 px-4 rounded-xl"onclick={createLogement}> Créer</button>
+    </div>
 </div>

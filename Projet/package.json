@@ -14,13 +14,9 @@
     "vite": "^8.0.12"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@tailwindcss/vite": "^4.3.0",
     "tailwind": "^4.0.0",
     "tailwindcss": "^4.3.0",
     "uuid": "^14.0.0"
-=======
-    "tailwind": "^4.0.0"
->>>>>>> 8ee083d276f7a4910c63e6aa6ac3b5d3a38e3855
   }
 }

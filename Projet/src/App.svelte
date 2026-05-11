@@ -21,12 +21,8 @@ var logementJson = {}
 {#if logged != ''}
 
 <Header/>
-<<<<<<< HEAD
 
 <div class="logements">
-=======
-<div class=".search-list">
->>>>>>> eb542f290dabb745f728f68b10443b5e80029fab
     <Logement/>
 </div>
 

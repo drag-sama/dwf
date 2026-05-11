@@ -21,9 +21,7 @@ var logementJson = {}
 
 <Header/>
 
-<button on:click={getLogements}>Get logements</button>
-
-<div class=".search-list">
+<div class="logements">
     <Logement/>
 </div>
 

@@ -1,8 +1,9 @@
 <script>
 	import Location from './component/Location.svelte';
   import Header from './component/Header.svelte';
+  
     const getLogements = async () => {
-        const res = await fetch("http://193.46.198.245:3000/logements")
+        const res = await fetch("/api/logements")
         const logementJson = await res.json()
         
         console.log(logementJson)

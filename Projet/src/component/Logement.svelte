@@ -16,11 +16,16 @@
 </script>
 
 {#each logements as logement}
-    {#if name.includes(search)}
+    {#if logement.nom.includes(search)}
 
-        <div title={"Nom du logement"}>
-            <h1>Nom: {logement.nom}</h1>
+        <div class ="logement">
             <Image src={logement.imageUrl}/>
+            <div class = "infos_logement">
+                <p class = "name_logement">{logement.nom}</p>
+                <p class = "city_logement">{logement.ville}</p>
+                <p class = "desc_logement">{logement.description}</p>
+                <p class = "price_logement">{logement.prix} €</p>
+            </div>
         </div>
 
     {/if}

@@ -1,6 +1,14 @@
+// DONNEES ///////////////////
 var list_items = [['Maison', 23999.99],['Manoir',2350000],['Cabane',0],['Appartement Marseille',199.99],
 ['Maison Calais',10],['Hotel de la plage',20]];
 
+// LIMIT CHAR RECHERCHE ///////////
+
+const onInput = event => {
+    event.target.value = event.target.value.replace(/[^A-Za-z]/g, '')
+}
+
+// RECHERCHE /////////////////
 var locations = document.getElementsByClassName("location");
 
 let inputElt = document.getElementById("search-offer");
@@ -8,11 +16,12 @@ inputElt.addEventListener("keyup", () => {
     let location
     for (let i = 0; i < locations.length;i++) {
         location = locations[i]
-        if (location.children[1].children[0].innerHTML.includes(inputElt.value)) location.style.display = 'block';
+        if (location.children[1].children[0].innerHTML.toLowerCase().includes(inputElt.value.toLowerCase())) location.style.display = 'block';
         else location.style.display = 'none'
     }
 })
 
+// AFFICHAGE DYNAMIQUE ////////////////
 let line = document.getElementsByClassName("line")[0];
 let products = document.getElementsByClassName("locations")[0];
 let i = 0
@@ -53,7 +62,7 @@ for (const item of list_items) {
     }
 
 
-
+// DETAILS ////////////////
 function showDetail(){
     console.log("click");
 }

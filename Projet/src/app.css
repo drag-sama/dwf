@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 @import "tailwindcss";
-=======
 .logements{
     display:flex;
     flex-direction:row;
@@ -56,4 +54,3 @@
     height: 50%;
     flex-shrink: 0;
 }
->>>>>>> 8ee083d276f7a4910c63e6aa6ac3b5d3a38e3855

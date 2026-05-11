@@ -1,10 +1,13 @@
 <script>
-	import Location from './component/Location.svelte';
-  import Header from './component/Header.svelte';
+
+var logementJson = {}
+
+    import Location from './component/Location.svelte';
+    import Header from './component/Header.svelte';
+  
     const getLogements = async () => {
-        const res = await fetch("http://193.46.198.245:3000/logements")
-        const logementJson = await res.json()
-        
+        const res = await fetch("/api/logements")
+        logementJson = await res.json()
         console.log(logementJson)
     }
 </script>

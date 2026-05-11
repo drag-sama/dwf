@@ -1,0 +1,63 @@
+body {
+    display:flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(192,192,192);
+}
+
+#search {
+    display: flex;
+    margin-right: 3%;
+
+    padding-top: 5%;
+}
+
+#logo {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-right: 70%;
+}
+
+input {
+    top: 10%;
+}
+
+.locations{
+    display:flex;
+    flex-direction:column;
+}
+
+.line{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    justify-content: center;
+    margin: 10px;
+}
+
+.location{
+    flex: 0 0 calc(25% - 8px);
+    background-color: rgb(235, 235, 235);
+    margin: 10px;
+}
+
+.info {
+    display: flex;
+    text-align:center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.name {
+    font-size: 15px;
+}
+
+.price {
+    font-size: 13px;
+}

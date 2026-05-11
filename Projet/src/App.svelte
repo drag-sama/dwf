@@ -4,6 +4,10 @@ var logementJson = {}
 
     import Logement from './component/Logement.svelte';
     import Header from './component/Header.svelte';
+    import Login from './component/Login.svelte';
+    
+    import {isLogged} from "./lib/store"
+  
   
     const getLogements = async () => {
         const res = await fetch("/api/logements")
@@ -12,6 +16,8 @@ var logementJson = {}
     }
 </script>
 
+{#if isLogged}
+
 <Header/>
 
 <button on:click={getLogements}>Get logements</button>
@@ -19,4 +25,8 @@ var logementJson = {}
 <div class=".search-list">
     <Logement/>
 </div>
+
+{:else}
+    <Login/>
+{/if}
 

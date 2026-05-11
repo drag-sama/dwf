@@ -16,9 +16,9 @@
 </script>
 
 {#each logements as logement}
-    {#if logement.nom.includes(search)}
+    {#if logement.nom.toLowerCase().includes(search.toLowerCase())}
 
-        <div class ="logement">
+        <div class ="logement rounded-sm">
             <Image src={logement.imageUrl}/>
             <div class = "infos_logement">
                 <p class = "name_logement">{logement.nom}</p>

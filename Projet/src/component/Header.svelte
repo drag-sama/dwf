@@ -20,7 +20,7 @@
     
 </script>
 
-<div class="flex flex-row shadow-xl justify-between">
+<div class="flex flex-row shadow-xl justify-between rounded-b-xl">
     <img src="/Logo.png" alt="Logo" class="size-25" />
     <div>
         {#if user != null}
@@ -29,7 +29,7 @@
                 Bienvenue {user.prenom} {user.nom} ! 
             </div>
         {/if}
-        <input class="border border-gray-300 h-9 mr-15 my-3"
+        <input class="border border-gray-300 rounded-sm p-2 h-9 mr-15 my-3"
             bind:value={name} oninput={() => searchContent.set({name}.name)} placeholder="Chercher un logement" />
     </div>
 </div>

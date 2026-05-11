@@ -16,8 +16,11 @@ import {userName} from "../lib/store"
     }
 </script>
 
-<div class="shadow-md flex flex-col items-center m-45 rounded-md border border-gray-200">
-    <span class="mt-3 text-3xl">Connexion</span>
-    <img src="/Logo.png" alt="Logo" class="size-40 mb-10"/>
+<div class=" flex flex-col mt-40">
+<div class="shadow-md rounded-md border border-gray-200 flex flex-col items-center self-center">
+<span class="mt-3 text-3xl">Connexion</span>
+    <img src="/Logo.png" alt="Logo" class="size-40 mb-10 mx-10"/>
     <input class="border rounded-sm p-1 border-gray-300 mb-5" bind:value={email} on:input={login} placeholder="Adresse email" />
+</div>
+    
 </div>

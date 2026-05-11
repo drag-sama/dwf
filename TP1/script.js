@@ -1,11 +1,15 @@
 var list_items = [['Maison', 23999.99],['Manoir',2350000],['Cabane',0],['Appartement Marseille',199.99],
-['Maison Calais',10],['Hotêl de la plage',20]];
+['Maison Calais',10],['Hotel de la plage',20]];
 
+var locations = document.getElementsByClassName("location");
 
 let inputElt = document.getElementById("search-offer");
 inputElt.addEventListener("keyup", () => {
-    for (const location in locations) {
-        if (location.children)
+    let location
+    for (let i = 0; i < locations.length;i++) {
+        location = locations[i]
+        if (location.children[1].children[0].innerHTML.includes(inputElt.value)) location.style.display = 'block';
+        else location.style.display = 'none'
     }
 })
 
@@ -37,7 +41,7 @@ for (const item of list_items) {
     div2.appendChild(para);
     para = document.createElement('p');
     para.classList.add("price");
-    para.innerText = item[1] + "€";
+    para.innerText = item[1] + '€';
     div2.appendChild(para);
 
     detail = document.createElement('div');
@@ -48,7 +52,7 @@ for (const item of list_items) {
     i += 1;
     }
 
-var locations = document.getElementsByClassName("location");
+
 
 function showDetail(){
     console.log("click");

@@ -4,7 +4,6 @@ var logementJson = {}
     import { Router, Link, Route, navigate } from "svelte-routing";
     import Logement from './component/Logement.svelte';
     import Header from './component/Header.svelte';
-    import Login from './component/Login.svelte';
     import { onMount } from "svelte";
     import ComptePage from "./page/ComptePage.svelte";
     import LoginPage from "./page/LoginPage.svelte";

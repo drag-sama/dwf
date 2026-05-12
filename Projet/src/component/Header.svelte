@@ -34,7 +34,7 @@
 </script>
 
 <div class="flex flex-row shadow-xl justify-between rounded-b-xl mb-10 bg-white dark:bg-gray-800 dark:shadow-gray-black">
-    <img src="/Logo.png" alt="Logo" class="size-25" onclick={() => navigate("/", {replace:true})} />
+    <img src="/Logo.png" alt="Logo" class="size-25 cursor-pointer" onclick={() => navigate("/", {replace:true})} />
     <div>
         <div class="flex flex-col items-center">
             <img src="/user.svg" alt="Logo" class="size-10 cursor-pointer" onclick={() => navigate("/compte", {replace: true})}/>

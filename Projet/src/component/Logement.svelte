@@ -37,7 +37,7 @@
     <img  class="size-15 self-center" src="https://c.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif" alt="Loading..." />
 {:else}
     {#each logementsTries.filter((value) => (value.proprietaireId == localStorage.userID) == isUserLogement) as logement}
-            <LogementCard imageUrl={logement.imageUrl} nom={logement.nom} ville={logement.ville} description={logement.description} prix={logement.prix}/>
+            <LogementCard imageUrl={logement.imageUrl} id={logement.id} nom={logement.nom} ville={logement.ville} description={logement.description} prix={logement.prix}/>
     {/each}
 {/if}
 

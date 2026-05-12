@@ -34,6 +34,7 @@
     
 </script>
 
+{#if logged != "" && logged != "guest"}
 <div class=" flex flex-col my-10">
 <div class="shadow-md rounded-md border border-gray-200 flex flex-col items-center self-center">
         <span class="mx-10 my-3 text-xl"> Crée nouveau logement</span>
@@ -44,3 +45,4 @@
         <button class="bg-black text-white m-3 p-2 px-4 rounded-xl"onclick={createLogement}> Créer</button>
     </div>
 </div>
+{/if}

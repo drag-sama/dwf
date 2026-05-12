@@ -20,7 +20,6 @@
 {:then logements}
     {#each logements as logement}
         {#if logement.nom.toLowerCase().includes(search.toLowerCase())}
-
             <div class ="flex flex-col justify-center w-full max-w-2/12 mx-3 pb-3 rounded-xl mb-8 rounded-sm border border-white hover:border-gray-900">
                 <Image src={logement.imageUrl}/>
                 <div class = "flex flex-col text-center">

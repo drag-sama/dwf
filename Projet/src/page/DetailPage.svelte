@@ -19,7 +19,7 @@
 
     let deleteFailed = $state(false);
     let resDelete = $state('');
-    async function deleteLogement () {
+    async function deleteLogement() {
             resDelete = await fetch(`/api/logements/${logement.id}`, {
 			method: 'DELETE',
             headers:{"Content-Type":"application/json"},
@@ -29,6 +29,23 @@
             deleteFailed = false;
         }
         else deleteFailed = true;
+    }
+
+    async function bookLogement() {
+        resBook = await fetch("/api/reservations/", {
+        method: 'POST',
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({
+                "logementId": logement.id,
+                "locataireId": localStorage.userID
+			})
+
+        })
+        /*resLogement = await fetch(`/api/logement/${logement.id}`, {
+        method: 'PUT',
+        headers: {"Content-Type":"application/json"},
+        })*/
+
     }
 
 </script>
@@ -52,7 +69,7 @@
                 <p>{logement.description}</p>
             </div>
             {#if proprietaire.id != localStorage.userID}
-                <button class="cursor-pointer">Réserver</button>
+                <button class="cursor-pointer" onclick={bookLogement}>Réserver</button>
             {:else}
                 <button class="cursor-pointer" onclick={deleteLogement}>Supprimer l'annonce</button>
             {/if}

@@ -14,15 +14,7 @@
         user = await res.json()
     }
 
-    const handleModeChange = () => {
-    if (localStorage.theme === "dark") {
-        localStorage.theme = "light";
-        document.documentElement.classList.remove("dark");
-    } else {
-        localStorage.theme = "dark";
-        document.documentElement.classList.add("dark");
-    }
-    }
+    
 
     userName.subscribe((value) => {
         userId = value;
@@ -46,7 +38,7 @@
 </script>
 
 <div class="flex flex-row shadow-xl justify-between rounded-b-xl mb-10 bg-white dark:bg-gray-800 dark:shadow-gray-black">
-    <img src="/Logo.png" alt="Logo" class="size-25" onclick={handleModeChange} />
+    <img src="/Logo.png" alt="Logo" class="size-25" onclick={() => navigate("/", {replace:true})} />
     <div>
         <div class="flex flex-col items-center">
             <img src="/user.svg" alt="Logo" class="size-10" onclick={() => navigate("/compte", {replace: true})}/>

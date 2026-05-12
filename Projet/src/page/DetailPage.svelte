@@ -1,6 +1,6 @@
 <script>
 // @ts-nocheck
-
+    import Book from '../component/Book.svelte';
     let {id} = $props()
     import { onMount } from 'svelte';
     import Image from '../component/Image.svelte';
@@ -31,25 +31,7 @@
         else deleteFailed = true;
     }
 
-    async function bookLogement() {
-        resBook = await fetch("/api/reservations/", {
-        method: 'POST',
-        headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({
-                "logementId": logement.id,
-                "locataireId": localStorage.userID
-			})
-
-        })
-        /*resLogement = await fetch(`/api/logement/${logement.id}`, {
-        method: 'PUT',
-        headers: {"Content-Type":"application/json"},
-        })*/
-
-    }
-
 </script>
-
 {#if loading}
   <p>Chargement...</p>
 {:else if logement}
@@ -69,7 +51,7 @@
                 <p>{logement.description}</p>
             </div>
             {#if proprietaire.id != localStorage.userID}
-                <button class="cursor-pointer" onclick={bookLogement}>Réserver</button>
+                <Book logement={logement}/>
             {:else}
                 <button class="cursor-pointer" onclick={deleteLogement}>Supprimer l'annonce</button>
             {/if}
@@ -77,4 +59,5 @@
             
         </div>
   </div>
+  
 {/if}

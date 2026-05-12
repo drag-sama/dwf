@@ -9,8 +9,7 @@
 
     let result = $state('')
     const handleCreate=()=>{
-        if(nom == '') return;
-        if(ville == '') return;
+        
         createLogement()
     }
 

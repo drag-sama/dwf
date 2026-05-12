@@ -1,6 +1,7 @@
 <script>
     let search = $state('');
     let triKeyValue = $state('');
+    // @ts-ignore
     let logements = $state([])
     let loading = $state(true)
 	import Image from './Image.svelte';

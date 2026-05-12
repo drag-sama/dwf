@@ -1,16 +1,15 @@
 <script>
+    import { get } from "svelte/store";
     let name = $state('')
     let triKeyValue = $state('');
     import {searchContent} from "../lib/store"
-    import {userName} from "../lib/store"
     import {triKey} from '../lib/store'
     import {navigate} from "svelte-routing";
 
     var user = $state()
-    let userId = $state('')
 
     const getUser = async () => {
-        const res = await fetch("/api/utilisateurs/" + userId)
+        const res = await fetch("/api/utilisateurs/" + localStorage.userID)
         user = await res.json()
     }
 
@@ -24,11 +23,8 @@
     }
     }
 
-    userName.subscribe((value) => {
-        userId = value;
-        if(userId != "guest")
-            getUser();
-    })
+    if (localStorage.userID != "guest") getUser();
+
     triKey.subscribe((value) => {
         triKeyValue = value;
     })
@@ -53,7 +49,7 @@
             {#if user != null}
                 <span class="dark:text-gray-300"> Bienvenue {user.prenom} {user.nom} ! </span> 
             {:else}
-                <button class="shadow sm border border-gray-200 dark:border-gray-900 dark:text-gray-400 px-1" onclick={() => userName.set("")} > Se connecter</button> 
+                <button class="shadow sm border border-gray-200 dark:border-gray-900 dark:text-gray-400 px-1" onclick={() => localStorage.userID = ""} > Se connecter</button> 
             {/if}
         </div>
         <div class="dropdown">
@@ -64,8 +60,8 @@
         e.preventDefault() //pr ne pas recharger la page
         showDropdown = !showDropdown}}>Trier par</button>
             <div id="myDropdown" class={showDropdown ? "dropdown-content block" : "dropdown-content hidden" }>
-                <button onclick={() => triKey.set("price_asc")}>Prix croissant</button>
-                <button onclick={() => triKey.set("price_desc")}>Prix décroissant</button>
+                <button class = "w-full" onclick={() => triKey.set("price_asc")}>Prix croissant</button>
+                <button class = "w-full" onclick={() => triKey.set("price_desc")}>Prix décroissant</button>
             </div>
         </div>
         <input class="border border-gray-300 dark:border-gray-500 dark:text-gray-400 rounded-sm p-2 h-9 mr-15 my-3"

@@ -1,14 +1,6 @@
 <script>    
-    import {userName} from "../lib/store"
-    import Logement from "./Logement.svelte";
+
     import { v4 as uuidv4 } from "uuid";
-
-    let logged = $state('');
-    userName.subscribe((value) => {
-        logged = value;
-    })
-
-    let result = $state('')
 
     let id = uuidv4();
     let nom = $state('');
@@ -34,7 +26,7 @@
     
 </script>
 
-{#if logged != "" && logged != "guest"}
+{#if localStorage.userID != "" && localStorage.userID != "guest"}
 <div class=" flex flex-col my-10">
 <div class="shadow-md rounded-md border border-gray-200 dark:border-gray-700 dark:text-gray-300 flex flex-col items-center self-center">
         <span class="mx-10 my-3 text-xl"> Crée nouveau logement</span>

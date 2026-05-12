@@ -7,17 +7,13 @@ var logementJson = {}
     import { onMount } from "svelte";
     import ComptePage from "./page/ComptePage.svelte";
     import LoginPage from "./page/LoginPage.svelte";
-    import {userName} from "./lib/store"
     import LogementForm from './component/LogementForm.svelte';
 
-    let logged = $state('');
-    userName.subscribe((value) => {
-        logged = value;
-        if(logged == ""){
-            navigate("/login", {replace:true});
-        }
-    })
+    if (localStorage.userID == '') {
+        navigate("/login", {replace:true})
+    }
 
+    
 
   onMount(() => {
     if (localStorage.theme === "dark") {

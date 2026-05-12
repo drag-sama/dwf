@@ -3,6 +3,7 @@
     
     import {searchContent} from "../lib/store"
     import {userName} from "../lib/store"
+    import { navigate } from "svelte-routing";
 
     var user = $state()
     let userId = $state('')
@@ -43,7 +44,7 @@
     <img src="/Logo.png" alt="Logo" class="size-25" onclick={handleModeChange} />
     <div>
         <div class="flex flex-col items-center">
-            <img src="/user.svg" alt="Logo" class="size-10" onclick={() => console.log("click")}/>
+            <img src="/user.svg" alt="Logo" class="size-10" onclick={() => navigate("/compte", {replace: true})}/>
             {#if user != null}
                 <span class="dark:text-gray-300"> Bienvenue {user.prenom} {user.nom} ! </span> 
             {:else}

@@ -41,12 +41,14 @@
             {#if user != null}
                 <span class="dark:text-gray-300"> {user.prenom} {user.nom}</span> 
             {:else}
-                <button class="shadow sm border border-gray-200 dark:border-gray-900 dark:text-gray-400 px-1" onclick={() => localStorage.userID = ""} > Se connecter</button> 
+                <button class="shadow sm border border-gray-200 dark:border-gray-900 dark:text-gray-400 px-1" onclick={() => {localStorage.userID = ""; navigate("/login", {replace:true})}} > Se connecter</button> 
             {/if}
         </div>
         <div class="dropdown">
             {#if triKeyValue != ''}
-            <button onclick={() => triKey.set('')}>x</button>
+            <button class="text-xl" onclick={() => triKey.set('')}>x</button>
+            {:else}
+            <span class="text-xl text-white dark:text-gray-800">x</span>
             {/if}
             <button class="dropbtn rounded-xl" onclick= {e => {
         e.preventDefault() //pr ne pas recharger la page

@@ -1,4 +1,5 @@
 <script>
+    let {isUserLogement = false} = $props();
     let search = $state('');
     let triKeyValue = $state('');
     // @ts-ignore
@@ -30,13 +31,12 @@
         loading = false 
     }
     getLogements()
-    
 </script>
 
 {#if loading}
     <img  class="size-15 self-center" src="https://c.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif" alt="Loading..." />
 {:else}
-    {#each logementsTries as logement}
+    {#each logementsTries.filter((value) => (value.proprietaireId == localStorage.userID) == isUserLogement) as logement}
             <LogementCard imageUrl={logement.imageUrl} nom={logement.nom} ville={logement.ville} description={logement.description} prix={logement.prix}/>
     {/each}
 {/if}

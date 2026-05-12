@@ -1,6 +1,6 @@
 <script>
   import { navigate } from "svelte-routing";
-  import {userName} from "../lib/store"
+  import Logement from "../component/Logement.svelte";
 
   const handleModeChange = () => {
     if (localStorage.theme === "dark") {
@@ -15,9 +15,10 @@
 
 <div class="flex flex-col items-center">
     <span>Ceci est la page de compte</span>
-    <button class=" border-gray-300 shadow-sm p-1 rounded-sm bg-black text-white dark:bg-white dark:text-black" onclick={() => {userName.set(""); navigate("/login", {replace:true});}}>Déconnexion</button>
+    <button class=" border-gray-300 shadow-sm p-1 rounded-sm bg-black text-white dark:bg-white dark:text-black" onclick={() => {localStorage.userId = ""; navigate("/login", {replace:true});}}>Déconnexion</button>
     <button onclick={handleModeChange}>Changer mode</button>
     <div>
         <span class="text-xl font-bold">Mes logements</span>
+        <Logement isUserLogement={true}/>
     </div>
 </div>

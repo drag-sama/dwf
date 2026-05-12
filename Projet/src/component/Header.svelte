@@ -39,7 +39,7 @@
         <div class="flex flex-col items-center">
             <img src="/user.svg" alt="Logo" class="size-10" onclick={() => navigate("/compte", {replace: true})}/>
             {#if user != null}
-                <span class="dark:text-gray-300"> Bienvenue {user.prenom} {user.nom} ! </span> 
+                <span class="dark:text-gray-300"> {user.prenom} {user.nom}</span> 
             {:else}
                 <button class="shadow sm border border-gray-200 dark:border-gray-900 dark:text-gray-400 px-1" onclick={() => localStorage.userID = ""} > Se connecter</button> 
             {/if}

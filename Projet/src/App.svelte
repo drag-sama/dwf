@@ -39,8 +39,6 @@ var logementJson = {}
 
         <Header/>
         <Logement/>
-
-        <LogementForm/> 
     </Route>
     <Route path="/login">
         <LoginPage/>

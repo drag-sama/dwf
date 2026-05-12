@@ -1,6 +1,7 @@
 <script>
   import { navigate } from "svelte-routing";
   import Logement from "../component/Logement.svelte";
+  import LogementForm from "../component/LogementForm.svelte";
 
   const handleModeChange = () => {
     if (localStorage.theme === "dark") {
@@ -21,6 +22,6 @@
         <div class="logements">
             <Logement isUserLogement={true}/>
         </div>
-        
+        <LogementForm/> 
     </div>
 </div>

@@ -38,9 +38,7 @@ var logementJson = {}
     <Route path="/">
 
         <Header/>
-        <div class="logements dark:bg-gray-900">
-            <Logement/>
-        </div>
+        <Logement/>
 
         <LogementForm/> 
     </Route>

@@ -1,5 +1,5 @@
 <script>
-import {userName} from "../lib/store"
+    import {userName} from "../lib/store"
     let email = $state('')
 
     var users = $state([])
@@ -31,7 +31,8 @@ import {userName} from "../lib/store"
     <img src="/Logo.png" alt="Logo" class="size-40 mb-5 mx-15"/>
     <p class={failedlogin ? "text-red-500 mb-3" : "text-white mb-3"}>Email incorrect</p>
     <input class="border rounded-sm p-1 border-gray-300 mb-5" bind:value={email} placeholder="Adresse email" />
-    <button class="shadow-sm mb-5 p-2 rounded-xl bg-black text-white">Connecter</button>
+    <button class="shadow-sm mb-1 p-2 rounded-xl bg-black text-white">Connecter</button>
+    <button class="text-blue-300 mb-2 text-sm" onclick={() => userName.set("guest")}>Connecter en tant qu'invité</button>
 </form>
     
 </div>

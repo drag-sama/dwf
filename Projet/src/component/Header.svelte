@@ -14,7 +14,8 @@
 
     userName.subscribe((value) => {
         userId = value;
-        getUser();
+        if(userId != "guest")
+            getUser();
     })
 
     
@@ -24,9 +25,11 @@
     <img src="/Logo.png" alt="Logo" class="size-25" />
     <div>
         <div class="flex flex-col items-center">
-            <img src="/Logo.png" alt="Logo" class="size-10" onclick={() => console.log("click")}/>
+            <img src="/user.svg" alt="Logo" class="size-10" onclick={() => console.log("click")}/>
             {#if user != null}
-                <span> Bienvenue {user.prenom} {user.nom} ! </span>  
+                <span> Bienvenue {user.prenom} {user.nom} ! </span> 
+            {:else}
+                <button class="shadow sm border border-gray-200 px-1" onclick={() => userName.set("")} > Se connecter</button> 
             {/if}
         </div>
         <input class="border border-gray-300 rounded-sm p-2 h-9 mr-15 my-3"

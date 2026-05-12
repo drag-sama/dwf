@@ -30,7 +30,6 @@
         }
         else deleteFailed = true;
     }
-
 </script>
 {#if loading}
   <p>Chargement...</p>

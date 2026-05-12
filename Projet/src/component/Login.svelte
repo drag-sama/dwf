@@ -10,7 +10,6 @@ import {userName} from "../lib/store"
     let failedlogin = $state(false)
     getUsers()
     const login = () => {
-        console.log(email + ' oui')
         let actualUser = users.filter((user) => user.email == email)
         if(actualUser.length > 0){
             userName.set(actualUser[0].id)

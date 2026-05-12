@@ -17,6 +17,13 @@
         getUser();
     })
 
+    let showDropdown = $state(false)
+
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            showDropdown = false;
+        }
+    }
     
 </script>
 
@@ -28,6 +35,17 @@
             {#if user != null}
                 <span> Bienvenue {user.prenom} {user.nom} ! </span>  
             {/if}
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn" onclick= {e => {
+        e.preventDefault() //pr ne pas recharger la page
+        if (showDropdown) showDropdown = false;
+        else showDropdown = true;}}>Dropdown</button>
+            <div id="myDropdown" class={showDropdown ? "dropdown-content block" : "dropdown-content hidden" }>
+                <a id="ascending_price" href="#">Prix croissant</a>
+                <a id="descending_price" href="#">Prix décroissant</a>
+                <a class="" href="#">Link 3</a>
+            </div>
         </div>
         <input class="border border-gray-300 rounded-sm p-2 h-9 mr-15 my-3"
             bind:value={name} oninput={() => searchContent.set({name}.name)} placeholder="Chercher un logement" />

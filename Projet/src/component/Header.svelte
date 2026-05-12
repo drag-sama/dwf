@@ -37,7 +37,7 @@
     <img src="/Logo.png" alt="Logo" class="size-20 sm:size-25" onclick={() => navigate("/", {replace:true})} />
     <div>
         <div class="flex flex-col items-center">
-            <img src="/user.svg" alt="Logo" class="size-10" onclick={() => navigate("/compte", {replace: true})}/>
+            <img src="/user.svg" alt="Logo" class="size-10 cursor-pointer" onclick={() => navigate("/compte", {replace: true})}/>
             {#if user != null}
                 <span class="dark:text-gray-300"> {user.prenom} {user.nom}</span> 
             {:else}

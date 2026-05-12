@@ -27,7 +27,7 @@
             type="date"
             id="start"
             value="2026-05-12"
-            class="mr-10 border border-gray-300 shadow-sm p-1 rounded-sm"
+            class="mr-10 border border-gray-300 shadow-sm p-2 rounded-sm"
         />
     </div>
 
@@ -37,9 +37,9 @@
             type="date"
             id="end"
             value="2026-05-12"
-            class="mr-10 border border-gray-300 shadow-sm p-1 rounded-sm"
+            class="mr-10 border border-gray-300 shadow-sm p-2 rounded-sm"
         />
     </div>
 </div>
 
-<button class="cursor-pointer" onclick={bookLogement}>Réserver</button>
+<button class="cursor-pointer border border-gray-300 shadow-sm rounded-sm py-2 mx-2" onclick={bookLogement}>Réserver</button>

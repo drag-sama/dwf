@@ -1,9 +1,9 @@
 {#if loaded}
-	<img {src} alt="Document" />
+	<img class="rounded-sm" {src} alt="Document" />
 {:else if failed}
-	<img  src="https://icon-library.com/images/not-found-icon/not-found-icon-20.jpg" alt="Not Found" />
+	<img class="rounded-sm"  src="https://icon-library.com/images/not-found-icon/not-found-icon-20.jpg" alt="Not Found" />
 {:else if loading}
-	<img  src="https://c.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif" alt="Loading..." />
+	<img class="rounded-sm"  src="https://c.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif" alt="Loading..." />
 {/if}
 
 <script>

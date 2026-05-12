@@ -1,5 +1,4 @@
 <script>
-	let name = $state('world');
     let search = $state('');
 	import Image from './Image.svelte';
 

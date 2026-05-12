@@ -34,11 +34,16 @@
         <div class="flex flex-col w-5/12">
             <p class="font-bold self-center mt-10 text-xl mb-20">{logement.nom}</p>
             <div class ="flex flex-col h-full text-lg">
-                <p class="mb-30">Ville: {logement.ville}</p>
+                <p class="">Ville: {logement.ville}</p>
                 <p>Description:</p>
                 <p>{logement.description}</p>
             </div>
+            {#if proprietaire.id != localStorage.userID}
+                <button class="cursor-pointer">Réserver</button>
+            {:else}
+                <button class="cursor-pointer">Supprimer l'annonce</button>
+            {/if}
             
-    </div>
+        </div>
   </div>
 {/if}

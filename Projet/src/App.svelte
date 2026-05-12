@@ -13,6 +13,17 @@ var logementJson = {}
     userName.subscribe((value) => {
         logged = value;
     })
+
+    import { onMount } from "svelte";
+
+  onMount(() => {
+    if (localStorage.theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  });
+
 </script>
 
 
@@ -20,7 +31,7 @@ var logementJson = {}
     <Login/>
 {:else}
     <Header/>
-    <div class="logements">
+    <div class="logements dark:bg-gray-900">
         <Logement/>
     </div>
 

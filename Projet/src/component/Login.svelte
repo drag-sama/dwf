@@ -9,6 +9,7 @@ import {userName} from "../lib/store"
     }
     getUsers()
     const login = () => {
+        console.log(email + ' oui')
         let actualUser = users.filter((user) => user.email == email)
         if(actualUser.length > 0){
             userName.set(actualUser[0].id)
@@ -17,10 +18,14 @@ import {userName} from "../lib/store"
 </script>
 
 <div class=" flex flex-col mt-40">
-<div class="shadow-md rounded-md border border-gray-200 flex flex-col items-center self-center">
+<form class="shadow-md rounded-md border border-gray-200 flex flex-col items-center self-center" onsubmit= {e => {
+        e.preventDefault() //pr ne pas recharger la page
+        login()}}>
+
 <span class="mt-3 text-3xl">Connexion</span>
     <img src="/Logo.png" alt="Logo" class="size-40 mb-10 mx-10"/>
-    <input class="border rounded-sm p-1 border-gray-300 mb-5" bind:value={email} on:input={login} placeholder="Adresse email" />
-</div>
+    <input class="border rounded-sm p-1 border-gray-300 mb-5" bind:value={email} placeholder="Adresse email" />
+    <button>Connecter</button>
+</form>
     
 </div>

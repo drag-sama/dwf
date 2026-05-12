@@ -33,8 +33,8 @@
     
 </script>
 
-<div class="flex flex-row shadow-xl justify-between rounded-b-xl mb-10 bg-white dark:bg-gray-800 dark:shadow-gray-black">
-    <img src="/Logo.png" alt="Logo" class="size-25" onclick={() => navigate("/", {replace:true})} />
+<div class="flex flex-row shadow-xl justify-between rounded-b-xl mb-10 bg-white dark:bg-gray-800 dark:shadow-gray-black sm:text-base">
+    <img src="/Logo.png" alt="Logo" class="size-20 sm:size-25" onclick={() => navigate("/", {replace:true})} />
     <div>
         <div class="flex flex-col items-center">
             <img src="/user.svg" alt="Logo" class="size-10" onclick={() => navigate("/compte", {replace: true})}/>
@@ -58,7 +58,7 @@
                 <button class = "w-full" onclick={() => triKey.set("price_desc")}>Prix décroissant</button>
             </div>
         </div>
-        <input class="border border-gray-300 dark:border-gray-500 dark:text-gray-400 rounded-sm p-2 h-9 mr-15 my-3"
+        <input class="border border-gray-300 dark:border-gray-500 dark:text-gray-400 rounded-sm p-2 h-9 w-25 md:w-60 sm:mr-15 my-3"
             bind:value={name} oninput={() => searchContent.set({name}.name)} placeholder="Chercher un logement" />
     </div>
 </div>

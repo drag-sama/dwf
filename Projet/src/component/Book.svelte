@@ -42,4 +42,4 @@
     </div>
 </div>
 
-<button class="cursor-pointer border border-gray-300 shadow-sm rounded-sm py-2 mx-2" onclick={bookLogement}>Réserver</button>
+<button class="cursor-pointer border border-gray-300 shadow-sm rounded-xl hover:bg-blue-400 py-2 mx-2" onclick={bookLogement}>Réserver</button>

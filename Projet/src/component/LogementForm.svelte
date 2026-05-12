@@ -1,4 +1,7 @@
-<script>    
+<script>
+  import { navigate } from "svelte-routing";
+    let error = $state('')
+    
     let nom = $state('');
     let ville = $state('');
     let imageUrl = $state('');
@@ -9,7 +12,14 @@
 
     let result = $state('')
     const handleCreate=()=>{
-        
+        if(nom == ''){
+            error = "Le nom ne doit pas être vide"
+            return;
+        }
+        if(ville == ''){
+            error = "La ville ne doit pas être vide"
+            return;
+        }
         createLogement()
     }
 
@@ -30,7 +40,12 @@
 		
 		const json = await res.json()
 		result = JSON.stringify(json)
-        console.log(result[0])
+        if(json.error == undefined){
+            window.location.reload();
+        }
+        else{
+            error = json.error
+        }
 	}
     
 </script>
@@ -47,5 +62,7 @@
         <input class="border dark:border-gray-500 rounded-sm my-1 p-1 w-11/12" bind:value={imageUrl} placeholder="Image" />
         <button class="bg-black text-white dark:bg-white dark:text-black m-3 p-2 px-4 rounded-xl"onclick={handleCreate}> Créer</button>
     </div>
+
+    <span class="text-red-400">{error}</span>
 </div>
 {/if}

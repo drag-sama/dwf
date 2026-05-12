@@ -10,7 +10,7 @@ var logementJson = {}
     import LogementForm from './component/LogementForm.svelte';
     import DetailPage from "./page/DetailPage.svelte";
 
-    if (localStorage.userID == '') {
+    if (localStorage.userID == ''  || localStorage.userID == undefined) {
         navigate("/login", {replace:true})
     }
 

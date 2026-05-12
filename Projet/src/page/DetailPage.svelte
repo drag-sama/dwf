@@ -31,6 +31,7 @@
         else deleteFailed = true;
     }
 
+    let resBook = $state('');
     async function bookLogement() {
         resBook = await fetch("/api/reservations/", {
         method: 'POST',

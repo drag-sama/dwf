@@ -7,29 +7,35 @@
     searchContent.subscribe((value) => {
         search = value;
     })
-    var logements = $state([])
+
     const getLogements = async () => {
         const res = await fetch("/api/logements")
-        logements = await res.json()
+        return await res.json()
     }
-    getLogements()
+    let promise = getLogements()
 </script>
 
-{#each logements as logement}
-    {#if logement.nom.toLowerCase().includes(search.toLowerCase())}
+{#await promise}
+    <img  class="size-15 self-center" src="https://c.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif" alt="Loading..." />
 
-        <div class ="flex flex-col justify-center w-full max-w-2/12 mx-3 pb-3 rounded-xl mb-8 rounded-sm border border-white hover:border-gray-900">
-            <Image src={logement.imageUrl}/>
-            <div class = "flex flex-col text-center">
-                <p class = "font-bold">{logement.nom}</p>
-                <p class = "text-gray-500">{logement.ville}</p>
-                <p class = "text-gray-500">{logement.description}</p>
-                <p class = "font-bold">{logement.prix} €</p>
+{:then logements}
+    {#each logements as logement}
+        {#if logement.nom.toLowerCase().includes(search.toLowerCase())}
+
+            <div class ="flex flex-col justify-center w-full max-w-2/12 mx-3 pb-3 rounded-xl mb-8 rounded-sm border border-white hover:border-gray-900">
+                <Image src={logement.imageUrl}/>
+                <div class = "flex flex-col text-center">
+                    <p class = "font-bold">{logement.nom}</p>
+                    <p class = "text-gray-500">{logement.ville}</p>
+                    <p class = "text-gray-500">{logement.description}</p>
+                    <p class = "font-bold">{logement.prix} €</p>
+                </div>
             </div>
-        </div>
 
-    {/if}
-{/each}
-
+        {/if}
+    {/each}
+{:catch error}
+    <div>Erreur : {error.message}</div>
+{/await}
 
 

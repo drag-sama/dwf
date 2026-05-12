@@ -2,6 +2,7 @@
     import {userName} from "../lib/store"
     let email = $state('')
 
+    // @ts-ignore
     var users = $state([])
     const getUsers = async () => {
         const res = await fetch("/api/utilisateurs")

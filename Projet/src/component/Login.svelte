@@ -23,9 +23,9 @@ import {userName} from "../lib/store"
         login()}}>
 
 <span class="mt-3 text-3xl">Connexion</span>
-    <img src="/Logo.png" alt="Logo" class="size-40 mb-10 mx-10"/>
+    <img src="/Logo.png" alt="Logo" class="size-40 mb-10 mx-15"/>
     <input class="border rounded-sm p-1 border-gray-300 mb-5" bind:value={email} placeholder="Adresse email" />
-    <button>Connecter</button>
+    <button class="shadow-sm mb-5 p-2 rounded-xl bg-black text-white">Connecter</button>
 </form>
     
 </div>

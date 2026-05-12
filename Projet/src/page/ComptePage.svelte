@@ -14,11 +14,13 @@
 </script>
 
 <div class="flex flex-col items-center">
-    <span>Ceci est la page de compte</span>
     <button class=" border-gray-300 shadow-sm p-1 rounded-sm bg-black text-white dark:bg-white dark:text-black" onclick={() => {localStorage.userId = ""; navigate("/login", {replace:true});}}>Déconnexion</button>
     <button onclick={handleModeChange}>Changer mode</button>
-    <div>
-        <span class="text-xl font-bold">Mes logements</span>
-        <Logement isUserLogement={true}/>
+    <div class="w-full flex flex-col items-center">
+        <span class="text-xl font-bold my-3 dark:text-gray-100">Mes logements</span>
+        <div class="logements">
+            <Logement isUserLogement={true}/>
+        </div>
+        
     </div>
 </div>

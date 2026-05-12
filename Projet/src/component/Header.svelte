@@ -1,9 +1,10 @@
 <script>
     let name = $state('')
-    
+    let triKeyValue = $state('');
     import {searchContent} from "../lib/store"
     import {userName} from "../lib/store"
-    import { navigate } from "svelte-routing";
+    import {triKey} from '../lib/store'
+    import {navigate} from "svelte-routing";
 
     var user = $state()
     let userId = $state('')
@@ -28,9 +29,13 @@
         if(userId != "guest")
             getUser();
     })
+    triKey.subscribe((value) => {
+        triKeyValue = value;
+    })
 
     let showDropdown = $state(false)
 
+    // pour cacher le dropdown quand on clique autre part
     window.onclick = function(event) {
         // @ts-ignore
         if (!event.target.matches('.dropbtn')) {
@@ -52,14 +57,15 @@
             {/if}
         </div>
         <div class="dropdown">
+            {#if triKeyValue != ''}
+            <button onclick={() => triKey.set('')}>x</button>
+            {/if}
             <button class="dropbtn rounded-xl" onclick= {e => {
         e.preventDefault() //pr ne pas recharger la page
-        if (showDropdown) showDropdown = false;
-        else showDropdown = true;}}>Dropdown</button>
+        showDropdown = !showDropdown}}>Trier par</button>
             <div id="myDropdown" class={showDropdown ? "dropdown-content block" : "dropdown-content hidden" }>
-                <a id="ascending_price" href="#">Prix croissant</a>
-                <a id="descending_price" href="#">Prix décroissant</a>
-                <a class="" href="#">Link 3</a>
+                <button onclick={() => triKey.set("price_asc")}>Prix croissant</button>
+                <button onclick={() => triKey.set("price_desc")}>Prix décroissant</button>
             </div>
         </div>
         <input class="border border-gray-300 dark:border-gray-500 dark:text-gray-400 rounded-sm p-2 h-9 mr-15 my-3"

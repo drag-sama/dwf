@@ -43,11 +43,14 @@
 
 {#if loading}
     <img  class="size-15 self-center" src="https://c.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif" alt="Loading..." />
-{:else}
+{:else if (reservationsAvecLogementTriees.length > 0)}
+    
     <div class="w-full mb-5 ml-2 sm:ml-10"><Dropdown page="reservation"/></div>
     <div class="grid grid-cols-3 px-3 sm:grid-cols-4 gap-3 sm:gap-10 md:px-15 ">
         {#each reservationsAvecLogementTriees as reservation}
                 <ReservationCard imageUrl={reservation.logement.imageUrl} logementId={reservation.logementId} nom={reservation.logement.nom} dateArrivee={reservation.dateArrivee.substring(0,10)} dateDepart={reservation.dateDepart.substring(0,10)}/>
         {/each}
     </div>
+    {:else}
+    <span class="flex justify-center text-xl text-black dark:text-white">Aucune réservation</span>
 {/if}

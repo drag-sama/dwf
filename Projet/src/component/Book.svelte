@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { navigate } from "svelte-routing";
+
   let {logement} = $props()
   let date_arrivee = $state("")
   let date_depart = $state("")
@@ -31,11 +33,12 @@
         let json = await resBook.json() 
         console.log(json)    
         if(json.error == undefined){
-            error = "Réserver avec succés"
+            error = "Réserver avec succès"
         } 
         else{
             error = json.error
         }
+        navigate("/compte")
     }
 
 </script>

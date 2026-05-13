@@ -35,14 +35,17 @@ var logementJson = {}
     <Link to="/detail/:id"></Link>
   </nav>
   <div>
-    <Route path="/">
+    
 
+  <Route path="/login">
+        <LoginPage/>
+    </Route>
+
+    <Route path="/">
         <Header/>
         <Logement/>
     </Route>
-    <Route path="/login">
-        <LoginPage/>
-    </Route>
+    
     <Route path="/compte">
         <Header/>
         <ComptePage/>

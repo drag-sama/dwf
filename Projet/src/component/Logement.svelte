@@ -7,6 +7,7 @@
     let loading = $state(true)
 
     import {searchContent, triKey} from "../lib/store"
+  import Dropwdown from "./Dropwdown.svelte";
   import LogementCard from "./LogementCard.svelte";
     searchContent.subscribe((value) => {
         search = value;
@@ -33,9 +34,11 @@
     getLogements()
 </script>
 
+
 {#if loading}
     <img  class="size-15 self-center" src="https://c.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif" alt="Loading..." />
 {:else}
+    <div class="w-full mb-5 ml-2 sm:ml-10"> <Dropwdown/> </div>
     <div class="grid grid-cols-3 px-3 sm:grid-cols-4 gap-3 sm:gap-10 md:px-15 ">
     {#each logementsTries.filter((value) => (value.proprietaireId == localStorage.userID) == isUserLogement) as logement}
             <LogementCard imageUrl={logement.imageUrl} id={logement.id} nom={logement.nom} ville={logement.ville} description={logement.description} prix={logement.prix}/>

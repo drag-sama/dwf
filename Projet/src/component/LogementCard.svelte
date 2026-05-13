@@ -7,11 +7,16 @@
         description = description.substring(0,12)
         description += "..."
     }
+
+    if(nom.length > 15){
+        nom = nom.substring(0,12)
+        nom += "..."
+    }
 </script>
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
-<div class ="flex flex-col cursor-pointer justify-center md:mx-3 pb-3 rounded-xl rounded-sm border border-white hover:border-gray-900 dark:hover:border-gray-400 dark:border-gray-900" onclick={() => navigate(`/detail/${id}`)}>
+<div class ="flex xl:h-80 flex-col cursor-pointer justify-center md:mx-3 pb-3 rounded-xl rounded-sm border border-white hover:border-gray-900 dark:hover:border-gray-400 dark:border-gray-900" onclick={() => navigate(`/detail/${id}`)}>
     <Image src={imageUrl}/>
     <div class = "flex flex-col text-center dark:text-gray-200">
         <p class = "font-bold">{nom}</p>

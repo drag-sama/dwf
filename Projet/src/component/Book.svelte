@@ -1,10 +1,24 @@
 <script lang="ts">
   let {logement} = $props()
-  let resBook = $state()
-  let date_arrivee = $state()
-  let date_depart = $state()
+  let date_arrivee = $state("")
+  let date_depart = $state("")
+
+  let error = $state("")
+  
+  const handleBook = () => {
+    if(date_arrivee == ""){
+        error = "La date d'arrivée ne peut pas être vide"
+        return
+    }
+    if(date_depart == ""){
+        error = "La date de départ ne peut pas être vide"
+        return
+    }
+    bookLogement()
+  } 
+
   async function bookLogement() {
-        resBook = await fetch("/api/reservations", {
+        const resBook = await fetch("/api/reservations", {
         method: 'POST',
         headers:{"Content-Type":"application/json"},
         body: JSON.stringify({
@@ -14,15 +28,14 @@
                 "dateArrivee": date_arrivee
 			})
         })
-        console.log(logement.id)
-        console.log(localStorage.userID )
-        console.log(date_depart)
-        console.log(date_arrivee)
-        /*resLogement = await fetch(`/api/logement/${logement.id}`, {
-        method: 'PUT',
-        headers: {"Content-Type":"application/json"},
-        })*/
-        
+        let json = await resBook.json() 
+        console.log(json)    
+        if(json.error == undefined){
+            error = "Réserver avec succés"
+        } 
+        else{
+            error = json.error
+        }
     }
 
 </script>
@@ -49,4 +62,6 @@
     </div>
 </div>
 
-<button class="cursor-pointer border border-gray-300 shadow-sm rounded-xl hover:bg-blue-400 py-2 mx-2" onclick={bookLogement}>Réserver</button>
+<span class="my-1"> {error}</span>
+
+<button class="cursor-pointer border border-gray-300 shadow-sm rounded-xl hover:bg-blue-400 py-2 mx-2" onclick={handleBook}>Réserver</button>

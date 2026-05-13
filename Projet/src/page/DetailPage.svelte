@@ -30,12 +30,13 @@
         }
         else deleteFailed = true;
     }
+
 </script>
 {#if loading}
   <p>Chargement...</p>
 {:else if logement}
     <div class="flex flex-col sm:flex-row dark:text-gray-200">
-        <div class="sm:w-7/12 mx-5 ">
+        <div class="sm:w-7/12 max-h-150 mx-5 ">
             <Image src={logement.imageUrl}/>
                 <div class="flex flex-col mt-5 sm:text-2xl ">
                     <p>Prix: {logement.prix}€</p>

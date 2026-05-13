@@ -48,7 +48,7 @@
         <input
             type="date"
             id="start"
-            class="mr-10 border border-gray-300 shadow-sm p-2 rounded-sm"
+            class="sm:mr-10 border border-gray-300 shadow-sm p-1 sm:p-2 rounded-sm"
             bind:value={date_arrivee}
         />
     </div>
@@ -58,12 +58,12 @@
         <input
             type="date"
             id="end"
-            class="mr-10 border border-gray-300 shadow-sm p-2 rounded-sm"
+            class="sm:mr-10 border border-gray-300 shadow-sm p-1 sm:p-2 rounded-sm"
             bind:value={date_depart}
         />
     </div>
 </div>
 
-<span class="my-1"> {error}</span>
+<span class="my-1 text-red-400"> {error}</span>
 
 <button class="cursor-pointer border border-gray-300 shadow-sm rounded-xl hover:bg-blue-400 py-2 mx-2" onclick={handleBook}>Réserver</button>

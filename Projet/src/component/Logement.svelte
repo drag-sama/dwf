@@ -34,14 +34,6 @@
     getLogements()
     let logementsTries = $derived(logements);
     let logementsTriesUser = logementsTries
-   
-
-    
-    
-   
-    console.log(logements)
-    console.log(logementsTries)
-    console.log(logementsTriesUser)
 </script>
 
 

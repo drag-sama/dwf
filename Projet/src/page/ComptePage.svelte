@@ -21,9 +21,9 @@
 
     {#if localStorage.userID != "guest"}
         <div class="w-11/12 flex flex-row items-center text-center dark:text-gray-200 my-10">
-            <button class={windowActive == 0 ? "windowButton border border-blue-400" : "windowButton"} onclick={() => windowActive = 0}>Mes logements</button>
-            <button class="windowButton" onclick={() => windowActive = 1}>Mes locations</button>
-            <button class="windowButton" onclick={() => windowActive = 2}>Nouveau logement</button>
+            <button class={windowActive == 0 ? "windowButton text-blue-400" : "windowButton"} onclick={() => windowActive = 0}>Mes logements</button>
+            <button class={windowActive == 1 ? "windowButton text-blue-400" : "windowButton"} onclick={() => windowActive = 1}>Mes locations</button>
+            <button class={windowActive == 2 ? "windowButton text-blue-400" : "windowButton"} onclick={() => windowActive = 2}>Nouveau logement</button>
         </div>
 
 

@@ -30,7 +30,7 @@
         <div class={windowActive == 0 ? "logements": "hidden"}>
             <Logement isUserLogement={true}/>
         </div>
-        <div class={windowActive == 11 ? "logements": "hidden"}>
+        <div class={windowActive == 1 ? "": "hidden"}>
             <Reservation/>
         </div>
         <div class={windowActive == 2 ? "": "hidden"}>

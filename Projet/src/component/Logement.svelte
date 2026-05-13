@@ -19,7 +19,6 @@
     const getLogements = async () => {
         const res = await fetch("/api/logements")
         logements = await res.json()
-        console.log(logements)
         loading = false 
 
         logementsTries = [...logements]

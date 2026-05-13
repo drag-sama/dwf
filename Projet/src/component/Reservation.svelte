@@ -16,7 +16,6 @@
         reservationsAvecLogement = reservations.map(reservation => ({
     ...reservation, logement: logements.find(l => l.id === reservation.logementId)})) // pour faire une "jointure" externe à l'api
         loading=false
-        console.log(reservationsAvecLogement[0])
     }); 
 </script>
 
@@ -26,7 +25,7 @@
     <div class="grid grid-cols-3 px-3 sm:grid-cols-4 gap-3 sm:gap-10 md:px-15 ">
         {#each reservationsAvecLogement as reservation}
             {#if reservation.locataireId == localStorage.userID}
-                <ReservationCard imageUrl={reservation.logement.imageUrl} logementId={reservation.logementId} nom={reservation.logement.nom} dateArrivee={reservation.dateArrivee} dateDepart={reservation.dateDepart}/>
+                <ReservationCard imageUrl={reservation.logement.imageUrl} logementId={reservation.logementId} nom={reservation.logement.nom} dateArrivee={reservation.dateArrivee.substring(0,10)} dateDepart={reservation.dateDepart.substring(0,10)}/>
             {/if}
         {/each}
     </div>

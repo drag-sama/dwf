@@ -2,7 +2,6 @@
     import { navigate } from 'svelte-routing';
     import Image from './Image.svelte';
     let {imageUrl,logementId,nom,dateArrivee,dateDepart} = $props();
-    console.log(logementId)
 </script>
 
 <!-- svelte-ignore a11y_click_events_have_key_events -->

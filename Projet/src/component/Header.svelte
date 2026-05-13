@@ -8,13 +8,26 @@
         const res = await fetch("/api/utilisateurs/" + localStorage.userID)
         user = await res.json()
     }
+
+    const handleLogo = () => {
+
+        let current_url = window.location.href.split('/').filter(Boolean).pop() || '/';
+        console.log(current_url)
+        if (current_url != "/"){
+            navigate("/", {replace:true})
+        }
+        else{
+            window.location.reload()
+        }
+    }
+
     if (localStorage.userID != "guest" && localStorage.userID != "") getUser();
 
 </script>
 
 {#if localStorage.userID != ""}
 <div class="flex flex-row shadow-xl justify-between rounded-b-xl mb-10 bg-white dark:bg-gray-800 dark:shadow-gray-black sm:text-base">
-    <img src="/Logo.png" alt="Logo" class="size-20 m-3 sm:size-25 cursor-pointer" onclick={() => navigate("/", {replace:true})} />
+    <img src="/Logo.png" alt="Logo" class="size-20 m-3 sm:size-25 cursor-pointer" onclick={handleLogo} />
     <div class="flex flex-row items-center">
        
         <input class="border  border-gray-300 dark:border-gray-500 dark:text-gray-400 rounded-sm p-2 h-9 w-25 md:w-60  my-3"

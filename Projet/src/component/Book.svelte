@@ -1,5 +1,9 @@
 <script lang="ts">
+<<<<<<< HEAD
     import { navigate } from "svelte-routing";
+=======
+  import { navigate } from "svelte-routing";
+>>>>>>> a2bba49f077ac1eea7549821bc653df99c79c9ac
 
   let {logement} = $props()
   let date_arrivee = $state("")
@@ -33,7 +37,7 @@
         let json = await resBook.json() 
         console.log(json)    
         if(json.error == undefined){
-            error = "Réserver avec succès"
+            navigate("/compte", {replace: true});
         } 
         else{
             error = json.error
@@ -49,7 +53,7 @@
         <input
             type="date"
             id="start"
-            class="mr-10 border border-gray-300 shadow-sm p-2 rounded-sm"
+            class="sm:mr-10 border border-gray-300 shadow-sm p-1 sm:p-2 rounded-sm"
             bind:value={date_arrivee}
         />
     </div>
@@ -59,12 +63,12 @@
         <input
             type="date"
             id="end"
-            class="mr-10 border border-gray-300 shadow-sm p-2 rounded-sm"
+            class="sm:mr-10 border border-gray-300 shadow-sm p-1 sm:p-2 rounded-sm"
             bind:value={date_depart}
         />
     </div>
 </div>
 
-<span class="my-1"> {error}</span>
+<span class="my-1 text-red-400"> {error}</span>
 
 <button class="cursor-pointer border border-gray-300 shadow-sm rounded-xl hover:bg-blue-400 py-2 mx-2" onclick={handleBook}>Réserver</button>

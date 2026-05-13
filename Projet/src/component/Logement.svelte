@@ -16,22 +16,32 @@
         triKeyValue = value;
     })
 
-    let logementsTries = $derived(
-        [...logements]
+    const getLogements = async () => {
+        const res = await fetch("/api/logements")
+        logements = await res.json()
+        console.log(logements)
+        loading = false 
+
+        logementsTries = [...logements]
             .filter(l => l.nom.toLowerCase().includes(search.toLowerCase()))
             .sort((a, b) => {
                 if (triKeyValue === 'price_asc')  return a.prix - b.prix;
                 if (triKeyValue === 'price_desc') return b.prix - a.prix;
                 return 0;
-            })
-    );
-    let logementsTriesUser = logementsTries.filter((value) => (value.proprietaireId == localStorage.userID) == isUserLogement)
-    const getLogements = async () => {
-        const res = await fetch("/api/logements")
-        logements = await res.json()
-        loading = false 
+            });
+     logementsTriesUser = logementsTries.filter((value) => (value.proprietaireId == localStorage.userID) == isUserLogement)
     }
     getLogements()
+    let logementsTries = $derived(logements);
+    let logementsTriesUser = logementsTries
+   
+
+    
+    
+   
+    console.log(logements)
+    console.log(logementsTries)
+    console.log(logementsTriesUser)
 </script>
 
 

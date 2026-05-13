@@ -19,7 +19,6 @@
     const getLogements = async () => {
         const res = await fetch("/api/logements")
         logements = await res.json()
-        console.log(logements)
         loading = false 
 
         logementsTries = [...logements]
@@ -34,14 +33,6 @@
     getLogements()
     let logementsTries = $derived(logements);
     let logementsTriesUser = logementsTries
-   
-
-    
-    
-   
-    console.log(logements)
-    console.log(logementsTries)
-    console.log(logementsTriesUser)
 </script>
 
 

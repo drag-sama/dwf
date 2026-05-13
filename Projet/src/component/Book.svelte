@@ -13,16 +13,7 @@
                 "dateDepart": date_depart,
                 "dateArrivee": date_arrivee
 			})
-        })
-        console.log(logement.id)
-        console.log(localStorage.userID )
-        console.log(date_depart)
-        console.log(date_arrivee)
-        /*resLogement = await fetch(`/api/logement/${logement.id}`, {
-        method: 'PUT',
-        headers: {"Content-Type":"application/json"},
-        })*/
-        
+        })       
     }
 
 </script>

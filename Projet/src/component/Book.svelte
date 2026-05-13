@@ -4,7 +4,7 @@
   let date_arrivee = $state()
   let date_depart = $state()
   async function bookLogement() {
-        resBook = await fetch("/api/reservations/", {
+        resBook = await fetch("/api/reservations", {
         method: 'POST',
         headers:{"Content-Type":"application/json"},
         body: JSON.stringify({
@@ -34,7 +34,7 @@
             type="date"
             id="start"
             class="mr-10 border border-gray-300 shadow-sm p-2 rounded-sm"
-            bind:value={date_depart}
+            bind:value={date_arrivee}
         />
     </div>
 
@@ -44,7 +44,7 @@
             type="date"
             id="end"
             class="mr-10 border border-gray-300 shadow-sm p-2 rounded-sm"
-            bind:value={date_arrivee}
+            bind:value={date_depart}
         />
     </div>
 </div>

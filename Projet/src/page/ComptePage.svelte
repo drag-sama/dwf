@@ -2,6 +2,7 @@
   import { navigate } from "svelte-routing";
   import Logement from "../component/Logement.svelte";
   import LogementForm from "../component/LogementForm.svelte";
+  import Reservation from "../component/Reservation.svelte";
   let windowActive = $state(0)
   const handleModeChange = () => {
     if (localStorage.theme === "dark") {
@@ -26,6 +27,17 @@
         </div>
 
 
+<<<<<<< HEAD
+    <div class={windowActive == 0 ? "logements": "hidden"}>
+        <Logement isUserLogement={true}/>
+    </div>
+    <div class={windowActive == 1 ? "": "hidden"}>
+        <Reservation/>
+    </div>
+    <div class={windowActive == 2 ? "": "hidden"}>
+        <LogementForm/> 
+    </div>
+=======
         <div class={windowActive == 0 ? "logements": "hidden"}>
             <Logement isUserLogement={true}/>
         </div>
@@ -36,5 +48,6 @@
             <LogementForm/> 
         </div>
     {/if}
+>>>>>>> d0eae661ffcf2aec53f4f2438339a730cbe2efc4
     
 </div>

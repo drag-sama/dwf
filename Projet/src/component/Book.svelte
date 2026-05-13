@@ -1,16 +1,23 @@
 <script lang="ts">
-  let logement = $props()
+  let {logement} = $props()
   let resBook = $state()
+  let date_arrivee = $state()
+  let date_depart = $state()
   async function bookLogement() {
         resBook = await fetch("/api/reservations/", {
         method: 'POST',
         headers:{"Content-Type":"application/json"},
         body: JSON.stringify({
                 "logementId": logement.id,
-                "locataireId": localStorage.userID
+                "locataireId": localStorage.userID,
+                "dateDepart": date_depart,
+                "dateArrivee": date_arrivee
 			})
-
         })
+        console.log(logement.id)
+        console.log(localStorage.userID )
+        console.log(date_depart)
+        console.log(date_arrivee)
         /*resLogement = await fetch(`/api/logement/${logement.id}`, {
         method: 'PUT',
         headers: {"Content-Type":"application/json"},
@@ -26,8 +33,8 @@
         <input
             type="date"
             id="start"
-            value="2026-05-12"
             class="mr-10 border border-gray-300 shadow-sm p-1 rounded-sm"
+            bind:value={date_depart}
         />
     </div>
 
@@ -36,8 +43,8 @@
         <input
             type="date"
             id="end"
-            value="2026-05-12"
             class="mr-10 border border-gray-300 shadow-sm p-1 rounded-sm"
+            bind:value={date_arrivee}
         />
     </div>
 </div>

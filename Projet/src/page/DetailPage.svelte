@@ -49,13 +49,16 @@
                 <p>Description:</p>
                 <p>{logement.description}</p>
             </div>
-            {#if proprietaire.id != localStorage.userID}
-                <Book logement={logement}/>
+            {#if localStorage.userID != "guest"}
+                {#if proprietaire.id != localStorage.userID}
+                    <Book logement={logement}/>
+                {:else}
+                    <button class="cursor-pointer shadow-sm border border-gray-400 hover:bg-red-400 mx-10 rounded-xl p-1" onclick={deleteLogement}>Supprimer l'annonce</button>
+                {/if}
+                    <p class={deleteFailed ? "text-red-200" : "text-white dark:text-gray-800"}>Erreur suppression : {resDelete.status}</p>
             {:else}
-                <button class="cursor-pointer shadow-sm border border-gray-400 hover:bg-red-400 mx-10 rounded-xl p-1" onclick={deleteLogement}>Supprimer l'annonce</button>
+                <button class="cursor-pointer shadow-sm border border-gray-400 mx-10 rounded-xl p-1" onclick={() => {localStorage.userID = ""; navigate("/login", {replace:true})}} > Se connecter</button> 
             {/if}
-                <p class={deleteFailed ? "text-red-200" : "text-white dark:text-gray-800"}>Erreur suppression : {resDelete.status}</p>
-            
         </div>
   </div>
   

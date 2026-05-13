@@ -25,6 +25,7 @@
                 return 0;
             })
     );
+    let logementsTriesUser = logementsTries.filter((value) => (value.proprietaireId == localStorage.userID) == isUserLogement)
         
     const getLogements = async () => {
         const res = await fetch("/api/logements")
@@ -36,14 +37,18 @@
 
 
 {#if loading}
-    <img  class="size-15 self-center" src="https://c.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif" alt="Loading..." />
-{:else}
-    <div class="w-full mb-5 ml-2 sm:ml-10"> <Dropwdown/> </div>
-    <div class="grid grid-cols-3 px-3 sm:grid-cols-4 gap-3 sm:gap-10 md:px-15 ">
-    {#each logementsTries.filter((value) => (value.proprietaireId == localStorage.userID) == isUserLogement) as logement}
-            <LogementCard imageUrl={logement.imageUrl} id={logement.id} nom={logement.nom} ville={logement.ville} description={logement.description} prix={logement.prix}/>
-    {/each}
+<div class="flex justify-center">
+    <img  class="size-15" src="https://c.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif" alt="Loading..." />
+</div>
+{:else if logementsTriesUser.length > 0}
+        <div class="w-full mb-5 ml-2 sm:ml-10"> <Dropwdown/> </div>
+        <div class="grid grid-cols-3 px-3 sm:grid-cols-4 gap-3 sm:gap-10 md:px-15 ">
+        {#each logementsTriesUser as logement}
+                <LogementCard imageUrl={logement.imageUrl} id={logement.id} nom={logement.nom} ville={logement.ville} description={logement.description} prix={logement.prix}/>
+        {/each}
     </div>
+{:else}
+    <span class="flex justify-center text-xl text-black dark:text-white">Aucun logement</span>
 {/if}
 
 

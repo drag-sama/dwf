@@ -21,7 +21,7 @@
             bind:value={name} oninput={() => searchContent.set({name}.name)} placeholder="Chercher un logement" />
         
         <div class="flex flex-col items-center mx-10">
-            <img src="/user.svg" alt="Logo" class="size-10 cursor-pointer" onclick={() => navigate("/compte", {replace: true})}/>
+            <img src="/user.svg" alt="Logo" class="size-12 cursor-pointer bg-gray-200 dark:bg-white rounded-3xl m-1 p-1" onclick={() => navigate("/compte", {replace: true})}/>
             {#if localStorage.userID != "guest" && localStorage.userID != ""}
                 {#if user != null}
                 <span class="dark:text-gray-300"> {user.prenom} {user.nom}</span>

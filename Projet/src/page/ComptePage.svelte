@@ -27,27 +27,15 @@
         </div>
 
 
-<<<<<<< HEAD
-    <div class={windowActive == 0 ? "logements": "hidden"}>
-        <Logement isUserLogement={true}/>
-    </div>
-    <div class={windowActive == 1 ? "": "hidden"}>
-        <Reservation/>
-    </div>
-    <div class={windowActive == 2 ? "": "hidden"}>
-        <LogementForm/> 
-    </div>
-=======
         <div class={windowActive == 0 ? "logements": "hidden"}>
             <Logement isUserLogement={true}/>
         </div>
         <div class={windowActive == 11 ? "logements": "hidden"}>
-            Locations
+            <Reservation/>
         </div>
         <div class={windowActive == 2 ? "": "hidden"}>
             <LogementForm/> 
         </div>
     {/if}
->>>>>>> d0eae661ffcf2aec53f4f2438339a730cbe2efc4
     
 </div>

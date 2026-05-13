@@ -7,7 +7,7 @@
     let loading = $state(true)
 
     import {searchContent, triKey} from "../lib/store"
-  import Dropwdown from "./Dropwdown.svelte";
+  import Dropdown from "./Dropdown.svelte";
   import LogementCard from "./LogementCard.svelte";
     searchContent.subscribe((value) => {
         search = value;
@@ -26,7 +26,6 @@
             })
     );
     let logementsTriesUser = logementsTries.filter((value) => (value.proprietaireId == localStorage.userID) == isUserLogement)
-        
     const getLogements = async () => {
         const res = await fetch("/api/logements")
         logements = await res.json()
@@ -41,7 +40,7 @@
     <img  class="size-15" src="https://c.tenor.com/On7kvXhzml4AAAAi/loading-gif.gif" alt="Loading..." />
 </div>
 {:else if logementsTriesUser.length > 0}
-        <div class="w-full mb-5 ml-2 sm:ml-10"> <Dropwdown/> </div>
+        <div class="w-full mb-5 ml-2 sm:ml-10"> <Dropdown/> </div>
         <div class="grid grid-cols-3 px-3 sm:grid-cols-4 gap-3 sm:gap-10 md:px-15 ">
         {#each logementsTriesUser as logement}
                 <LogementCard imageUrl={logement.imageUrl} id={logement.id} nom={logement.nom} ville={logement.ville} description={logement.description} prix={logement.prix}/>

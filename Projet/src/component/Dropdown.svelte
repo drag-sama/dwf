@@ -23,6 +23,7 @@
     <div id="myDropdown" class={showDropdown ? "dropdown-content block" : "dropdown-content hidden" }>
         <button class = "w-full" onclick={() => triKey.set("price_asc")}>Prix croissant</button>
         <button class = "w-full" onclick={() => triKey.set("price_desc")}>Prix décroissant</button>
+        <button class = "w-full" onclick={() =>triKey.set("")}>sans filtre</button>
     </div>
     {#if triKeyValue != ''}
     <button class="text-xl" onclick={() => triKey.set('')}>x</button>

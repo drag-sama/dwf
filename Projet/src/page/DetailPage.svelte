@@ -25,7 +25,7 @@
             headers:{"Content-Type":"application/json"},
 		})
         if (resDelete.status == 200) {
-            navigate("/",{replace: true});
+            navigate("/compte",{replace: true});
             deleteFailed = false;
         }
         else deleteFailed = true;
@@ -34,15 +34,15 @@
 {#if loading}
   <p>Chargement...</p>
 {:else if logement}
-    <div class="flex flex-row dark:text-gray-200">
-        <div class="w-7/12 mx-5">
+    <div class="flex flex-col sm:flex-row dark:text-gray-200">
+        <div class="sm:w-7/12 mx-5 ">
             <Image src={logement.imageUrl}/>
-                <div class="flex flex-col mt-5">
+                <div class="flex flex-col mt-5 sm:text-2xl ">
                     <p>Prix: {logement.prix}€</p>
                     <p>Propriétaire: {proprietaire.prenom} {proprietaire.nom}</p>
                 </div>
         </div>
-        <div class="flex flex-col w-5/12">
+        <div class="flex flex-col sm:w-5/12 bg-gray-200 dark:bg-gray-800 shadow-xl border-border-gray-200 rounded-xl p-2 mx-5 my-7 sm:mt-0">
             <p class="font-bold self-center mt-10 text-xl mb-20">{logement.nom}</p>
             <div class ="flex flex-col h-full text-lg">
                 <p class="">Ville: {logement.ville}</p>
@@ -52,9 +52,9 @@
             {#if proprietaire.id != localStorage.userID}
                 <Book logement={logement}/>
             {:else}
-                <button class="cursor-pointer" onclick={deleteLogement}>Supprimer l'annonce</button>
+                <button class="cursor-pointer shadow-sm border border-gray-400 hover:bg-red-400 mx-10 rounded-xl p-1" onclick={deleteLogement}>Supprimer l'annonce</button>
             {/if}
-                <p class={deleteFailed ? "text-red-200" : "text-white dark:text-gray-900"}>Erreur suppression : {resDelete.status}</p>
+                <p class={deleteFailed ? "text-red-200" : "text-white dark:text-gray-800"}>Erreur suppression : {resDelete.status}</p>
             
         </div>
   </div>

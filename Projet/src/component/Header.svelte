@@ -51,7 +51,7 @@
                 <button class = "w-full" onclick={() => triKey.set("price_desc")}>Prix décroissant</button>
             </div>
         </div>
-        <input class="border ml-3 border-gray-300 dark:border-gray-500 dark:text-gray-400 rounded-sm p-2 h-9 w-25 md:w-60  my-3"
+        <input class="border  border-gray-300 dark:border-gray-500 dark:text-gray-400 rounded-sm p-2 h-9 w-25 md:w-60  my-3"
             bind:value={name} oninput={() => searchContent.set({name}.name)} placeholder="Chercher un logement" />
         
         <div class="flex flex-col items-center mx-10">

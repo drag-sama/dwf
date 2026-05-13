@@ -1,9 +1,5 @@
 <script lang="ts">
-<<<<<<< HEAD
     import { navigate } from "svelte-routing";
-=======
-  import { navigate } from "svelte-routing";
->>>>>>> a2bba49f077ac1eea7549821bc653df99c79c9ac
 
   let {logement} = $props()
   let date_arrivee = $state("")
